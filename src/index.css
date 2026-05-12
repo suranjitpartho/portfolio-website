@@ -33,7 +33,7 @@
 
 @layer base {
   body {
-    @apply bg-outer-bg text-text-primary font-sans antialiased min-h-screen p-[15px];
+    @apply bg-outer-bg text-text-primary font-sans antialiased min-h-screen flex items-center justify-center overflow-hidden;
   }
 
   h1,
@@ -46,7 +46,7 @@
   }
 
   #root {
-    @apply h-[calc(100vh-30px)] bg-inner-bg border border-white/5 flex overflow-hidden relative shadow-2xl;
+    @apply w-[calc(100vw-60px)] h-[calc(100vh-60px)] bg-inner-bg border border-white/10 flex overflow-hidden relative shadow-[0_30px_100px_rgba(0,0,0,0.8)] rounded-[12px];
   }
 }
 

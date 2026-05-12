@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Globe, User, Mail, ExternalLink, MapPin, Quote, Zap, Activity } from 'lucide-react'
 import myPhoto from '../assets/myphoto.jpg'
 
@@ -22,46 +22,86 @@ const InstagramIconSmall = () => (
 
 const Sidebar = () => {
   const [githubStats, setGithubStats] = useState({ total: '...', streak: '...' });
+  const [currentMsgIndex, setCurrentMsgIndex] = useState(0);
+  const [showMsg, setShowMsg] = useState(true);
+
+  const messages = [
+    "Hi there! 👋",
+    "What are you up to today?",
+    "Want to collaborate? ✨",
+    "Looking for an AI Architect? 🤖",
+    "I'm working on AI agent development 🚀",
+    "Exploring LangGraph & LLMs! 🧠"
+  ];
+
   const skills = ['Python', 'FastAPI', 'Laravel', 'Langgraph', 'React'];
   const githubUsername = 'suranjitpartho';
 
   useEffect(() => {
+    const msgInterval = setInterval(() => {
+      setShowMsg(false);
+      setTimeout(() => {
+        setCurrentMsgIndex((prev) => (prev + 1) % messages.length);
+        setShowMsg(true);
+      }, 500);
+    }, 10000);
+
     fetch(`https://github-contributions-api.jogruber.de/v4/${githubUsername}?y=last`)
       .then(res => res.json())
       .then(data => {
         const total = data.total?.lastYear || 0;
         let streak = 0;
         const today = new Date().toISOString().split('T')[0];
-        
+
         if (data.contributions) {
-           const allDays = [...data.contributions].reverse();
-           for (const day of allDays) {
-              if (day.count > 0) {
-                streak++;
-              } else if (day.date !== today) {
-                break;
-              }
-           }
+          const allDays = [...data.contributions].reverse();
+          for (const day of allDays) {
+            if (day.count > 0) {
+              streak++;
+            } else if (day.date !== today) {
+              break;
+            }
+          }
         }
+
+        const formattedStreak = streak < 10 ? `0${streak} d` : `${streak} d`;
 
         setGithubStats({
           total: total.toLocaleString(),
-          streak: `${streak} days`
+          streak: formattedStreak
         });
       })
       .catch(err => {
         console.error('GitHub fetch failed:', err);
         setGithubStats({ total: 'ERR', streak: 'ERR' });
       });
+
+    return () => clearInterval(msgInterval);
   }, []);
 
   return (
     <div className="w-[290px] h-full bg-darker-bg flex flex-col z-10 border-r border-white/5">
       {/* Profile Header */}
-      <div className="p-[30px] text-center bg-surface">
-        <div className="w-[90px] h-[90px] mx-auto mb-[15px] relative">
+      <div className="p-[30px_30px] text-center bg-surface relative">
+        <div className="w-[85px] h-[85px] mx-auto mb-[15px] relative">
           <img src={myPhoto} alt="Suranjit Das" className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
-          <div className="absolute bottom-[5px] right-[5px] w-3 h-3 bg-accent-yellow rounded-full border-2 border-surface animate-pulse"></div>
+
+          {/* Pop Message Bubble - Fun Interactive Messages */}
+          <AnimatePresence mode='wait'>
+            {showMsg && (
+              <motion.div
+                key={currentMsgIndex}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                style={{ transformOrigin: '0% 0%' }}
+                className="absolute top-[58px] left-[76px] bg-white/5 backdrop-blur-md border border-white/10 text-text-primary text-[0.65rem] font-medium px-4 py-2 rounded-2xl rounded-tl-none shadow-2xl z-20 whitespace-nowrap flex items-center"
+              >
+                {messages[currentMsgIndex]}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
         <h3 className="text-[1.1rem] font-header font-semibold mb-[5px] tracking-tight text-text-primary">Suranjit Das</h3>
         <p className="text-[0.7rem] text-text-secondary leading-[1.4] font-medium">
@@ -70,7 +110,7 @@ const Sidebar = () => {
       </div>
 
       {/* Sidebar Content */}
-      <div className="flex-1 overflow-y-auto p-[30px] space-y-10 no-scrollbar">
+      <div className="flex-1 overflow-y-auto p-[30px_30px] space-y-8 no-scrollbar">
         {/* Basic Info */}
         <div className="space-y-2 text-[0.7rem]">
           <div className="flex justify-between">
@@ -115,10 +155,10 @@ const Sidebar = () => {
 
         <div className="h-px bg-white/5"></div>
 
-        {/* Skill Tags - Middle Aligned, No Headline */}
+        {/* Skill Tags - Middle Aligned */}
         <div className="flex flex-wrap gap-2 justify-center">
           {skills.map(tag => (
-            <span key={tag} className="px-2 py-1 bg-white/5 border border-white/5 rounded text-[0.6rem] text-text-secondary font-medium hover:text-accent-yellow transition-colors">
+            <span key={tag} className="px-2 py-1 bg-white/5 border border-white/5 rounded text-[0.6rem] text-text-secondary font-medium hover:text-accent-yellow transition-colors cursor-default">
               {tag}
             </span>
           ))}
