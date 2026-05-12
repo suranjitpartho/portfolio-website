@@ -70,7 +70,7 @@ const Sidebar = () => {
       </div>
 
       {/* Sidebar Content */}
-      <div className="flex-1 overflow-y-auto p-[30px] space-y-8 no-scrollbar">
+      <div className="flex-1 overflow-y-auto p-[30px] space-y-10 no-scrollbar">
         {/* Basic Info */}
         <div className="space-y-2 text-[0.7rem]">
           <div className="flex justify-between">
@@ -89,9 +89,8 @@ const Sidebar = () => {
 
         <div className="h-px bg-white/5"></div>
 
-        {/* GitHub "Infograph" - Icon Integrated */}
+        {/* GitHub "Infograph" */}
         <div className="space-y-5">
-          {/* Main Stat Block */}
           <div>
             <div className="flex items-center gap-2 mb-2">
               <GithubIconMid className="text-accent-yellow opacity-80" />
@@ -104,7 +103,6 @@ const Sidebar = () => {
             </p>
           </div>
 
-          {/* Secondary Stat (Tiered) */}
           <div className="flex flex-col items-end pr-2">
             <p className="text-[1.1rem] font-header font-bold text-text-primary/90 leading-none tracking-tighter">
               {githubStats.streak}
@@ -117,26 +115,13 @@ const Sidebar = () => {
 
         <div className="h-px bg-white/5"></div>
 
-        {/* Mission Statement */}
-        <div className="text-[0.7rem] space-y-3 text-center px-2">
-          <Quote size={14} className="mx-auto text-accent-yellow opacity-60 rotate-180" />
-          <p className="text-text-secondary leading-relaxed italic">
-            "Engineering AI systems for global humanitarian impact!"
-          </p>
-        </div>
-
-        <div className="h-px bg-white/5"></div>
-
-        {/* Skill Tags */}
-        <div className="space-y-3">
-          <h4 className="text-[0.7rem] font-header font-semibold text-accent-yellow tracking-widest uppercase">Expertise</h4>
-          <div className="flex flex-wrap gap-2">
-            {skills.map(tag => (
-              <span key={tag} className="px-2 py-1 bg-white/5 border border-white/5 rounded text-[0.6rem] text-text-secondary font-medium">
-                {tag}
-              </span>
-            ))}
-          </div>
+        {/* Skill Tags - Middle Aligned, No Headline */}
+        <div className="flex flex-wrap gap-2 justify-center">
+          {skills.map(tag => (
+            <span key={tag} className="px-2 py-1 bg-white/5 border border-white/5 rounded text-[0.6rem] text-text-secondary font-medium hover:text-accent-yellow transition-colors">
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
 
