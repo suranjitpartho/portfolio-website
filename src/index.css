@@ -46,7 +46,8 @@
   }
 
   #root {
-    @apply w-[calc(100vw-60px)] h-[calc(100vh-60px)] bg-inner-bg border border-white/10 flex overflow-hidden relative shadow-[0_30px_100px_rgba(0,0,0,0.8)] rounded-[12px];
+    @apply w-[calc(100vw-30px)] h-[calc(100vh-30px)] bg-inner-bg border border-white/10 flex overflow-hidden relative rounded-[12px];
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
   }
 }
 

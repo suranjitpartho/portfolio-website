@@ -1,87 +1,108 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Code2, Palette, Terminal, BarChart4, Quote } from 'lucide-react'
+import { Terminal, ArrowRight, Download, Activity, Globe, Zap } from 'lucide-react'
+
+import heroBanner from '../assets/hero-banner.png'
 
 const MainContent = () => {
-  const yellowBtnClasses = "bg-accent-yellow text-darker-bg px-8 py-3 font-bold cursor-pointer transition-all duration-500 ease-smooth uppercase tracking-wider text-[0.85rem] rounded-[2px] hover:bg-[#ffca28] hover:-translate-y-0.5 hover:shadow-[0_5px_20px_rgba(255,193,7,0.4)]";
-
   return (
     <div className="flex-1 h-full overflow-hidden relative">
       <div className="h-full overflow-y-auto p-[30px] no-scrollbar">
-        
-        {/* Banner Hero - Centered Mission */}
-        <section className="min-h-[300px] relative flex flex-col items-center justify-center p-[40px] rounded-[8px] mb-[30px] overflow-hidden text-center">
-          <div 
-            className="absolute inset-0 bg-cover bg-center z-0 scale-110" 
-            style={{ 
-              backgroundImage: "linear-gradient(rgba(10,10,18,0.8), rgba(10,10,18,0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')" 
+
+        {/* Banner Hero - Widescreen System Strip */}
+        <section className="min-h-[240px] relative flex flex-col items-center justify-center p-[30px] rounded-[12px] mb-[40px] overflow-hidden text-center border border-white/5 shadow-2xl">
+          <div
+            className="absolute inset-0 bg-cover bg-center z-0 scale-105"
+            style={{
+              backgroundImage: `linear-gradient(rgba(10,10,18,0.75), rgba(10,10,18,0.75)), url(${heroBanner})`
             }}
           />
-          <div className="relative z-10 max-w-[700px]">
+          <div className="relative z-10 max-w-[800px]">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.8 }}
               className="flex flex-col items-center"
             >
-              <Quote size={20} className="text-accent-yellow opacity-40 mb-5 rotate-180" />
-              
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-[1.5rem] md:text-[2rem] font-header font-extrabold leading-[1.2] mb-10 tracking-tight"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[1.2rem] md:text-[1.8rem] font-header font-extrabold leading-tight mb-4 tracking-tighter uppercase"
               >
-                Engineering <span className="text-accent-yellow">AI systems</span> for high-impact decision making
+                Engineering <span className="text-accent-yellow">AI systems</span> for <br className="hidden md:block" /> high-impact decision making
               </motion.h1>
-              
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-[0.65rem] md:text-[0.75rem] text-text-primary/70 max-w-[550px] mb-8 leading-relaxed font-medium uppercase tracking-widest"
+              >
+                Building AI-powered systems at the intersection of software engineering,
+                data intelligence, and real-world problem solving.
+              </motion.p>
+
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-wrap gap-4 justify-center"
               >
-                <motion.button 
-                  className={yellowBtnClasses}
-                  whileHover={{ scale: 1.05 }}
+                <motion.button
+                  className="relative group overflow-hidden bg-accent-yellow text-black px-6 py-2.5 font-extrabold uppercase tracking-[0.2em] text-[0.6rem] rounded-[2px] transition-all duration-300"
                   whileTap={{ scale: 0.95 }}
                 >
-                  Explore Work
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Work <ArrowRight size={12} strokeWidth={3} />
+                  </span>
+                </motion.button>
+
+                <motion.button
+                  className="bg-white/5 backdrop-blur-md text-white border border-white/10 px-6 py-2.5 font-extrabold uppercase tracking-[0.2em] text-[0.6rem] rounded-[2px] hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="flex items-center gap-2">
+                    Resume <Download size={12} strokeWidth={2.5} />
+                  </span>
                 </motion.button>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Stats Row */}
-        <section className="flex justify-around mb-[50px] px-[10px] flex-wrap gap-10 py-5">
-          <StatItem value="8+" label="Years Experience" />
-          <StatItem value="143" label="Completed Projects" />
-          <StatItem value="Auckland" label="Location Base" />
-          <StatItem value="700+" label="GitHub Commits" />
-        </section>
-
-        {/* Services */}
-        <section className="mb-10">
-          <div className="flex items-center gap-4 mb-8">
-            <h2 className="text-[1.2rem] font-header font-extrabold tracking-widest uppercase text-accent-yellow">Solutions</h2>
+        {/* Projects Section - Modern Minimalist Grid */}
+        <section className="mb-20">
+          <div className="flex items-center gap-4 mb-12">
+            <div className="flex items-center gap-3">
+              <Terminal size={18} className="text-accent-yellow" />
+              <h2 className="text-[1.1rem] font-header font-extrabold tracking-[0.3em] uppercase text-text-primary">Projects</h2>
+            </div>
             <div className="h-px flex-1 bg-white/5"></div>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[30px]">
-            <ServiceCard 
-              title="AI System Engineering" 
-              desc="Building LLM-powered agents and RAG pipelines for complex enterprise automation."
-              icon={<Terminal size={20} />}
+          
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[30px]">
+            <ProjectCard 
+              image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+              title="Clinical Data Analytics Agent" 
+              tag="Healthcare AI"
+              stack="Python • LangGraph • FastAPI"
+              desc="Autonomous agent system designed to synthesize complex clinical datasets into actionable insights for healthcare providers."
             />
-            <ServiceCard 
-              title="Full Stack Development" 
-              desc="High-performance web architectures with React, FastAPI, and distributed systems."
-              icon={<Code2 size={20} />}
+            <ProjectCard 
+              image="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=800"
+              title="Agricultural Farm Context Agent" 
+              tag="Agritech AI"
+              stack="LLMs • GeoData • Python"
+              desc="Context-aware AI system that processes environmental and crop data to optimize farm management and yield prediction."
             />
-            <ServiceCard 
-              title="Data Intelligence" 
-              desc="Turning chaotic datasets into strategic business intelligence and predictive models."
-              icon={<BarChart4 size={20} />}
+            <ProjectCard 
+              image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
+              title="Construction Site Monitor Agent" 
+              tag="Industrial AI"
+              stack="Computer Vision • IoT • RAG"
+              desc="Real-time monitoring system that utilizes vision agents and RAG to track site progress and safety compliance."
             />
           </div>
         </section>
@@ -91,23 +112,47 @@ const MainContent = () => {
   )
 }
 
-const StatItem = ({ value, label }) => (
-  <div className="flex flex-col items-center gap-1">
-    <span className="text-[1.5rem] font-header font-extrabold text-accent-yellow">{value}</span>
-    <span className="text-[0.6rem] text-text-secondary uppercase tracking-[0.2em]">{label}</span>
-  </div>
-)
-
-const ServiceCard = ({ title, desc, icon }) => (
-  <div className="bg-surface p-8 rounded-[4px] border border-white/5 transition-all duration-500 ease-smooth hover:border-accent-yellow/30 hover:-translate-y-1 group">
-    <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center mb-6 text-accent-yellow group-hover:bg-accent-yellow group-hover:text-darker-bg transition-all duration-500">
-      {icon}
+const ProjectCard = ({ image, title, tag, stack, desc }) => (
+  <div className="group bg-surface/60 backdrop-blur-md rounded-[12px] border border-white/10 overflow-hidden transition-all duration-500 shadow-none">
+    {/* Image Container with Stronger Amber Tint */}
+    <div className="h-[160px] overflow-hidden relative bg-surface/50">
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+      />
+      {/* Primary Amber Color Fusion */}
+      <div className="absolute inset-0 bg-accent-yellow/25 mix-blend-color group-hover:bg-accent-yellow/10 transition-colors duration-500"></div>
+      {/* Darker Overlay for Depth */}
+      <div className="absolute inset-0 bg-darker-bg/20 group-hover:bg-transparent transition-colors duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-darker-bg via-transparent to-transparent opacity-90"></div>
+      
+      <div className="absolute top-3 left-3 bg-surface px-2 h-4 inline-flex items-center rounded-[2px]">
+        <span className="text-[0.42rem] text-white font-mono uppercase tracking-[0.2em] font-extrabold leading-none">
+          {tag}
+        </span>
+      </div>
     </div>
-    <h3 className="text-[1.1rem] font-header font-extrabold mb-4">{title}</h3>
-    <p className="text-[0.8rem] text-text-secondary leading-[1.6] mb-6">{desc}</p>
-    <a href="#" className="text-accent-yellow text-[0.7rem] font-bold tracking-[0.2em] uppercase flex items-center gap-2 group-hover:gap-3 transition-all">
-      View Pipeline <span>&gt;</span>
-    </a>
+
+    {/* Content - Compact Padded */}
+    <div className="p-5">
+      <h3 className="text-[1.1rem] font-header font-extrabold mb-2 leading-tight text-text-primary transition-colors group-hover:text-accent-yellow">
+        {title}
+      </h3>
+      <p className="text-[0.7rem] text-text-secondary leading-[1.5] mb-6 font-medium line-clamp-2">
+        {desc}
+      </p>
+      
+      <div className="pt-5 border-t border-white/5 flex items-center justify-between">
+        <div className="flex flex-col gap-0.5">
+          <span className="text-[0.5rem] text-text-secondary uppercase tracking-widest font-bold">Stack</span>
+          <span className="text-[0.6rem] text-text-primary/70 font-mono tracking-tight">{stack}</span>
+        </div>
+        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-text-secondary group-hover:text-accent-yellow group-hover:border-accent-yellow transition-all duration-500">
+          <ArrowRight size={16} />
+        </div>
+      </div>
+    </div>
   </div>
 )
 
