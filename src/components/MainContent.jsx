@@ -10,7 +10,7 @@ const MainContent = () => {
       <div className="h-full overflow-y-auto p-[30px] no-scrollbar">
         
         {/* Banner Hero - Centered Mission */}
-        <section className="min-h-[400px] relative flex flex-col items-center justify-center p-[60px] rounded-[4px] mb-[30px] overflow-hidden text-center">
+        <section className="min-h-[300px] relative flex flex-col items-center justify-center p-[40px] rounded-[8px] mb-[30px] overflow-hidden text-center">
           <div 
             className="absolute inset-0 bg-cover bg-center z-0 scale-110" 
             style={{ 
@@ -30,9 +30,9 @@ const MainContent = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-[2rem] md:text-[2.6rem] font-header font-extrabold leading-[1.2] mb-10 tracking-tight"
+                className="text-[1.5rem] md:text-[2rem] font-header font-extrabold leading-[1.2] mb-10 tracking-tight"
               >
-                Engineering AI systems for <br/> <span className="text-accent-yellow">global humanitarian</span> impact!
+                Engineering <span className="text-accent-yellow">AI systems</span> for high-impact decision making
               </motion.h1>
               
               <motion.div

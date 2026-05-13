@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Globe, User, Mail, ExternalLink, MapPin, Quote, Zap, Activity } from 'lucide-react'
+import { Globe, User, Mail, ExternalLink, MapPin, Quote, Zap, Activity, GraduationCap } from 'lucide-react'
 import myPhoto from '../assets/myphoto.jpg'
 
 // Stable SVG Icons
@@ -34,7 +34,7 @@ const Sidebar = () => {
     "Exploring LangGraph & LLMs! 🧠"
   ];
 
-  const skills = ['Python', 'FastAPI', 'Laravel', 'Langgraph', 'React'];
+  const skills = ['Python', 'PostgreSQL', 'LangGraph', 'RAG', 'FastAPI', 'React', 'Airflow'];
   const githubUsername = 'suranjitpartho';
 
   useEffect(() => {
@@ -105,7 +105,7 @@ const Sidebar = () => {
         </div>
         <h3 className="text-[1.1rem] font-header font-semibold mb-[5px] tracking-tight text-text-primary">Suranjit Das</h3>
         <p className="text-[0.7rem] text-text-secondary leading-[1.4] font-medium">
-          AI Systems, Analytics &<br />Full Stack Engineer
+          AI Systems, Software &<br />Data Intelligence
         </p>
       </div>
 
@@ -122,8 +122,20 @@ const Sidebar = () => {
             <span className="text-text-secondary">8+ Years</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-semibold text-text-primary">Age:</span>
-            <span className="text-text-secondary">33</span>
+            <span className="font-semibold text-text-primary">Focus:</span>
+            <span className="text-text-secondary">AI Engineering</span>
+          </div>
+        </div>
+
+        <div className="h-px bg-white/5"></div>
+
+        {/* Academic Status - Centered & Clean */}
+        <div className="flex flex-col items-center text-center space-y-1">
+          <GraduationCap size={20} className="text-accent-yellow opacity-80" />
+          <div>
+            <p className="text-[0.65rem] text-text-secondary mb-1 font-medium">Currently Studying</p>
+            <p className="text-[0.85rem] font-header font-bold text-text-primary leading-tight">Master of Software <br />Engineering</p>
+            <p className="text-[0.65rem] text-text-secondary mt-1 font-medium italic opacity-70 leading-tight">at Yoobee College</p>
           </div>
         </div>
 
