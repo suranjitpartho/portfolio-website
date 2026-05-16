@@ -28,7 +28,7 @@ const MainContent = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[1.2rem] md:text-[1.8rem] font-header font-extrabold leading-tight mb-4 tracking-tighter uppercase"
+                className="text-[1rem] md:text-[1.4rem] font-header font-extrabold leading-tight mb-3 tracking-tighter uppercase"
               >
                 Engineering <span className="text-accent-yellow">AI systems</span> for <br className="hidden md:block" /> high-impact decision making
               </motion.h1>
@@ -37,7 +37,7 @@ const MainContent = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-[0.65rem] md:text-[0.75rem] text-text-primary/70 max-w-[550px] mb-8 leading-relaxed font-medium uppercase tracking-widest"
+                className="text-[0.75rem] md:text-[0.85rem] text-text-primary/70 max-w-[550px] mb-8 leading-relaxed font-medium"
               >
                 Building AI-powered systems at the intersection of software engineering,
                 data intelligence, and real-world problem solving.
@@ -143,13 +143,19 @@ const ProjectCard = ({ image, title, tag, stack, desc }) => (
         {desc}
       </p>
       
-      <div className="pt-5 border-t border-white/5 flex items-center justify-between">
-        <div className="flex flex-col gap-0.5">
-          <span className="text-[0.5rem] text-text-secondary uppercase tracking-widest font-bold">Stack</span>
-          <span className="text-[0.6rem] text-text-primary/70 font-mono tracking-tight">{stack}</span>
+      <div className="pt-4 border-t border-white/5 flex items-center justify-between gap-4">
+        <div className="flex flex-wrap gap-1.5">
+          {stack.split(' • ').map((tech, index) => (
+            <span 
+              key={index}
+              className="text-[0.45rem] font-mono text-accent-yellow/90 bg-accent-yellow/10 border border-accent-yellow/10 px-2 py-0.5 rounded-full tracking-tight"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
-        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-text-secondary group-hover:text-accent-yellow group-hover:border-accent-yellow transition-all duration-500">
-          <ArrowRight size={16} />
+        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-text-secondary group-hover:text-accent-yellow group-hover:border-accent-yellow transition-all duration-500 shrink-0">
+          <ArrowRight size={14} />
         </div>
       </div>
     </div>
