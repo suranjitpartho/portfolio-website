@@ -2,17 +2,14 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 
-import heroBanner from '../assets/hero-banner.png'
+import ParticleField from './ParticleField'
 
 const Hero = () => {
   return (
     <section className="min-h-[240px] relative flex flex-col items-center justify-center p-[30px] rounded-[12px] mb-[40px] overflow-hidden text-center border border-white/5 shadow-2xl">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0 scale-105"
-        style={{
-          backgroundImage: `linear-gradient(rgba(10,10,18,0.55), rgba(10,10,18,0.55)), url(${heroBanner})`
-        }}
-      />
+      <div className="absolute inset-0 z-0 bg-darker-bg"></div>
+      <ParticleField />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-darker-bg/60 via-transparent to-darker-bg/80"></div>
       <div className="relative z-10 max-w-[800px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
