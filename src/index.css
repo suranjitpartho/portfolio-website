@@ -8,8 +8,9 @@
   --inner-bg: #1e1e26;
   --sidebar-bg: #191923;
   --surface: #2c2c38;
-  --accent-yellow: #ffb507;
-  --accent-purple: #e9634b;
+  --accent-yellow: #15f187;
+  --accent-yellow-dark: #0b5e34;
+  --accent-purple: #9ce21a;
   --text-primary: #f5f5f7;
   --text-secondary: #8c8c8e;
 }
@@ -20,6 +21,7 @@
   --color-sidebar-bg: var(--sidebar-bg);
   --color-surface: var(--surface);
   --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-dark: var(--accent-yellow-dark);
   --color-accent-purple: var(--accent-purple);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);

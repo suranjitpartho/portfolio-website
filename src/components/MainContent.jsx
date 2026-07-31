@@ -93,7 +93,7 @@ const ProjectCard = ({ image, title, tag, stack, desc }) => (
           {stack.split(' • ').map((tech, index) => (
             <span 
               key={index}
-              className="text-[0.45rem] font-mono text-accent-yellow/90 bg-accent-yellow/10 border border-accent-yellow/10 px-2 py-0.5 rounded-full tracking-tight"
+              className="text-[0.45rem] font-mono text-text-secondary bg-white/5 border border-white/10 px-2 py-0.5 rounded-full tracking-tight"
             >
               {tech}
             </span>

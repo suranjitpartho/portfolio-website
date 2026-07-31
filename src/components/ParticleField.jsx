@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-const AMBER = '255,181,7'
+const AMBER = '21,241,135'
 const WHITE = '245,245,247'
 const LINK_DIST = 130
 const MOUSE_RADIUS = 150

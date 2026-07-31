@@ -39,7 +39,7 @@ const RightNav = () => {
             {/* Icon Container with Circular Solid BG for Active */}
             <div className={`w-9 h-9 flex items-center justify-center transition-all duration-500 rounded-full ${
               activeItem === item.id 
-              ? 'bg-accent-yellow text-darker-bg shadow-[0_10px_30px_rgba(255,181,7,0.25)]' 
+              ? 'bg-accent-yellow text-accent-yellow-dark shadow-[0_10px_30px_rgba(21,241,135,0.25)]' 
               : 'text-text-secondary hover:text-text-primary hover:bg-white/5'
             }`}>
               {React.cloneElement(item.icon, { 
