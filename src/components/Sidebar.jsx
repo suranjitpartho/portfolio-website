@@ -26,7 +26,7 @@ const Sidebar = () => {
   const [showMsg, setShowMsg] = useState(true);
 
   const messages = [
-    "Hi there! 👋",
+    "Kia ora! 👋",
     "What are you up to today?",
     "Want to collaborate? ✨",
     "Looking for an AI Architect? 🤖",
