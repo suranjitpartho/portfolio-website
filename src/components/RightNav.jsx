@@ -13,6 +13,11 @@ const navItems = [
 const RightNav = () => {
   const [activeItem, setActiveItem] = useState('home')
 
+  const handleClick = (id) => {
+    setActiveItem(id)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <div className="w-[80px] h-full bg-darker-bg flex flex-col items-center justify-center border-l border-white/5 relative z-20">
       
@@ -21,7 +26,7 @@ const RightNav = () => {
         {navItems.map((item) => (
           <button 
             key={item.id}
-            onClick={() => setActiveItem(item.id)}
+            onClick={() => handleClick(item.id)}
             className="group relative flex items-center justify-center p-0 border-none bg-transparent"
           >
             {/* Command Label Tooltip */}

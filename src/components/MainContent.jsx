@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Terminal, ArrowRight, Download, Activity, Globe, Zap } from 'lucide-react'
 
 import heroBanner from '../assets/hero-banner.png'
+import Experience from './Experience'
 
 const MainContent = () => {
   return (
@@ -106,6 +107,8 @@ const MainContent = () => {
             />
           </div>
         </section>
+
+        <Experience />
 
       </div>
     </div>
