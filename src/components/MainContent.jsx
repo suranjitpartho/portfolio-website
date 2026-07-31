@@ -4,6 +4,7 @@ import { Terminal, ArrowRight } from 'lucide-react'
 
 import Hero from './Hero'
 import Experience from './Experience'
+import Contact from './Contact'
 
 const MainContent = () => {
   return (
@@ -51,6 +52,8 @@ const MainContent = () => {
         </section>
 
         <Experience />
+
+        <Contact />
 
       </div>
     </div>
