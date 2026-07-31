@@ -19,7 +19,7 @@ const MainContent = () => {
               <Terminal size={18} className="text-accent-yellow" />
               <h2 className="flex items-baseline gap-3 text-[1.1rem] font-header font-extrabold tracking-[0.3em] uppercase text-text-primary">
                 Projects
-                <span className="font-mono text-[0.6rem] text-accent-yellow/90 tracking-[0.3em]">ngā kaupapa</span>
+                <span className="font-mono text-[0.75rem] text-accent-yellow/90 tracking-normal">ngā kaupapa</span>
               </h2>
             </div>
             <div className="h-px flex-1 bg-white/5"></div>

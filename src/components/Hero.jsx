@@ -24,11 +24,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mb-5 flex items-center gap-2.5 font-mono text-[0.65rem] uppercase tracking-[0.35em]"
+            className="mb-5 font-mono text-[0.65rem] uppercase tracking-normal text-white"
           >
-            <span className="text-accent-yellow">❯</span>
-            <span className="text-accent-yellow/90">nau mai haere mai</span>
-            <span aria-hidden="true" className="w-[7px] h-[0.9em] bg-accent-yellow animate-pulse"></span>
+            nau mai haere mai
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 15 }}

@@ -7,7 +7,7 @@ const experience = [
   {
     role: 'Senior AI Engineer',
     company: 'FinTech AI Startup',
-    period: '2022 — Present',
+    period: 'Jan 2022 — Present',
     mission: 'Designing agentic AI systems that turn raw data into automated, high-confidence decisions at scale.',
     achievements: [
       'Led design of a multi-agent LangGraph orchestration platform handling 10k+ daily decision workflows',
@@ -21,7 +21,7 @@ const experience = [
   {
     role: 'Data Engineer',
     company: 'Data Analytics Consultancy',
-    period: '2020 — 2022',
+    period: 'Mar 2020 — Dec 2021',
     mission: 'Building dependable data pipelines and analytics products for clients across multiple industries.',
     achievements: [
       'Engineered ETL pipelines ingesting 50M+ rows daily with Airflow orchestration and S3 staging',
@@ -35,7 +35,7 @@ const experience = [
   {
     role: 'Software Engineer',
     company: 'Digital Agency',
-    period: '2018 — 2020',
+    period: 'Jun 2018 — Feb 2020',
     mission: 'Shipping full-stack web products end-to-end, from database schema to responsive front-end.',
     achievements: [
       'Built customer-facing web apps with Laravel + React that scaled to 100k monthly active users',
@@ -57,18 +57,18 @@ const Experience = () => {
           <Briefcase size={18} className="text-accent-yellow" />
           <h2 className="flex items-baseline gap-3 text-[1.1rem] font-header font-extrabold tracking-[0.3em] uppercase text-text-primary">
             Experience
-            <span className="font-mono text-[0.6rem] text-accent-yellow/90 tracking-[0.3em]">ngā wheako</span>
+            <span className="font-mono text-[0.75rem] text-accent-yellow/90 tracking-normal">ngā wheako</span>
           </h2>
         </div>
         <div className="h-px flex-1 bg-white/5"></div>
       </div>
 
       {/* Vertical Timeline */}
-      <div className="relative pl-[26px]">
+      <div className="relative">
         {/* Timeline Line */}
-        <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-accent-yellow/70 via-white/10 to-transparent"></div>
+        <div className="absolute left-[150px] top-0 bottom-0 w-px bg-white/10"></div>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {experience.map((exp, index) => (
             <motion.div
               key={exp.role}
@@ -76,45 +76,45 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="relative"
+              className="relative grid grid-cols-[120px_20px_1fr] gap-x-5"
             >
-              {/* Timeline Dot */}
-              <div className="absolute -left-[26px] top-7 w-[15px] h-[15px] rounded-full bg-accent-yellow shadow-[0_0_20px_rgba(255,181,7,0.5)]"></div>
+              {/* Period - left of the timeline bar, aligned with card title */}
+              <div className="mt-[21px] h-[19px] flex items-center justify-end text-right">
+                <span className="font-mono text-[0.55rem] text-text-secondary whitespace-nowrap">{exp.period}</span>
+              </div>
+
+              {/* Timeline Dot - centered on the line, aligned with card title */}
+              <div className="mt-[21px] h-[19px] flex items-center justify-center">
+                <span className="block w-[11px] h-[11px] rounded-full bg-accent-yellow/80"></span>
+              </div>
 
               {/* Glassmorphism Card */}
-              <div className="group bg-surface/60 backdrop-blur-md rounded-[12px] border border-white/10 p-6 transition-all duration-500 hover:border-accent-yellow/40 hover:shadow-[0_0_40px_rgba(255,181,7,0.08)]">
+              <div className="bg-surface/50 backdrop-blur-md rounded-[10px] border border-white/10 p-5 transition-colors duration-300 hover:border-white/25">
                 {/* Header */}
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="text-[1.05rem] font-header font-extrabold leading-tight text-text-primary group-hover:text-accent-yellow transition-colors">
-                      {exp.role}
-                    </h3>
-                    <p className="text-[0.75rem] font-semibold text-accent-yellow/90 mt-1">{exp.company}</p>
-                  </div>
-                  <span className="text-[0.6rem] font-mono text-text-secondary border border-white/10 rounded px-2 py-1 whitespace-nowrap">
-                    {exp.period}
-                  </span>
+                <div className="mb-2">
+                  <h3 className="text-[0.95rem] font-header font-extrabold leading-tight text-text-primary">{exp.role}</h3>
+                  <p className="text-[0.7rem] font-semibold text-text-secondary mt-0.5">{exp.company}</p>
                 </div>
 
                 {/* Mission */}
-                <p className="text-[0.7rem] text-text-secondary leading-[1.5] italic mb-4">{exp.mission}</p>
+                <p className="text-[0.68rem] text-text-secondary leading-relaxed mb-3">{exp.mission}</p>
 
                 {/* Achievements */}
-                <ul className="space-y-2 mb-5">
+                <ul className="space-y-1.5 mb-4">
                   {exp.achievements.map((item) => (
                     <li key={item} className="flex gap-2 text-[0.7rem] text-text-primary/80 leading-[1.5]">
-                      <ChevronRight size={12} className="text-accent-yellow mt-[3px] shrink-0" strokeWidth={3} />
+                      <ChevronRight size={12} className="text-white/30 mt-[3px] shrink-0" strokeWidth={3} />
                       {item}
                     </li>
                   ))}
                 </ul>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {exp.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[0.45rem] font-mono text-accent-yellow/90 bg-accent-yellow/10 border border-accent-yellow/10 px-2 py-0.5 rounded-full tracking-tight"
+                      className="text-[0.45rem] font-mono text-text-secondary bg-white/5 border border-white/10 px-2 py-0.5 rounded-full tracking-tight"
                     >
                       {tech}
                     </span>
@@ -122,10 +122,10 @@ const Experience = () => {
                 </div>
 
                 {/* Key Achievement Callout */}
-                <div className="rounded-[8px] border border-accent-yellow/30 bg-accent-yellow/10 p-3 flex gap-3 items-start">
-                  <Star size={14} className="text-accent-yellow shrink-0 mt-[2px]" fill="currentColor" />
+                <div className="border-l-2 border-white/20 pl-3 flex gap-2.5 items-start">
+                  <Star size={13} className="text-text-secondary shrink-0 mt-[2px]" />
                   <div>
-                    <p className="text-[0.55rem] font-mono uppercase tracking-[0.2em] font-extrabold text-accent-yellow mb-1">Key Achievement</p>
+                    <p className="text-[0.5rem] font-mono uppercase tracking-[0.2em] font-extrabold text-text-secondary mb-0.5">Key Achievement</p>
                     <p className="text-[0.7rem] text-text-primary/90 leading-[1.5] font-medium">{exp.keyAchievement}</p>
                   </div>
                 </div>
