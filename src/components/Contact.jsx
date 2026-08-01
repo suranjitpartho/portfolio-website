@@ -41,7 +41,7 @@ const Contact = () => {
         <div className="md:col-span-2 flex flex-col border border-white/10 rounded-[12px] p-6">
           <div className="flex items-center gap-2.5 mb-5">
             <CalendarClock size={18} className="text-text-secondary" />
-            <h3 className="text-[1.2rem] font-header font-extrabold tracking-tight text-text-primary">
+            <h3 className="text-[0.95rem] font-header font-semibold tracking-wide text-text-primary">
               Availability
             </h3>
           </div>
@@ -67,7 +67,7 @@ const Contact = () => {
         >
           <div className="flex items-center gap-2.5 mb-5">
             <Briefcase size={18} className="text-text-secondary" />
-            <h3 className="text-[1.2rem] font-header font-extrabold tracking-tight text-text-primary">
+            <h3 className="text-[0.95rem] font-header font-semibold tracking-wide text-text-primary">
               Open to roles
             </h3>
           </div>
