@@ -89,7 +89,7 @@ const Projects = () => {
         <div className="h-px flex-1 bg-white/5"></div>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[30px]">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-[30px]">
         {projects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}

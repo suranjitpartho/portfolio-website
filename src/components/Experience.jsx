@@ -66,7 +66,7 @@ const Experience = () => {
       {/* Vertical Timeline */}
       <div className="relative">
         {/* Timeline Line */}
-        <div className="absolute left-[150px] top-0 bottom-0 w-px bg-white/10"></div>
+        <div className="absolute left-[150px] top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
 
         <div className="space-y-8">
           {experience.map((exp, index) => (
@@ -76,15 +76,15 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="relative grid grid-cols-[120px_20px_1fr] gap-x-5"
+              className="relative grid grid-cols-1 md:grid-cols-[120px_20px_1fr] gap-x-5 gap-y-2 md:gap-y-0"
             >
               {/* Period - left of the timeline bar, aligned with card title */}
-              <div className="mt-[21px] h-[19px] flex items-center justify-end text-right">
+              <div className="md:mt-[21px] md:h-[19px] flex items-center md:justify-end md:text-right">
                 <span className="font-mono text-[0.55rem] text-text-secondary whitespace-nowrap">{exp.period}</span>
               </div>
 
               {/* Timeline Dot - centered on the line, aligned with card title */}
-              <div className="mt-[21px] h-[19px] flex items-center justify-center">
+              <div className="hidden md:mt-[21px] md:h-[19px] md:flex items-center justify-center">
                 <span className="block w-[11px] h-[11px] rounded-full bg-accent-yellow/80"></span>
               </div>
 

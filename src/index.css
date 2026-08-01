@@ -7,6 +7,7 @@
   --outer-bg: #000000;
   --inner-bg: #1e1e26;
   --sidebar-bg: #191923;
+  --darker-bg: #191923;
   --surface: #2c2c38;
   --accent-yellow: #15f187;
   --accent-yellow-dark: #0b5e34;
@@ -19,6 +20,7 @@
   --color-outer-bg: var(--outer-bg);
   --color-inner-bg: var(--inner-bg);
   --color-sidebar-bg: var(--sidebar-bg);
+  --color-darker-bg: var(--darker-bg);
   --color-surface: var(--surface);
   --color-accent-yellow: var(--accent-yellow);
   --color-accent-yellow-dark: var(--accent-yellow-dark);
@@ -48,8 +50,19 @@
   }
 
   #root {
-    @apply w-[calc(100vw-30px)] h-[calc(100vh-30px)] bg-inner-bg border border-white/10 flex overflow-hidden relative rounded-[12px];
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+    @apply bg-inner-bg flex overflow-hidden relative;
+    width: 100vw;
+    height: 100dvh;
+  }
+
+  @media (min-width: 1024px) {
+    #root {
+      width: calc(100vw - 30px);
+      height: calc(100vh - 30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+    }
   }
 }
 

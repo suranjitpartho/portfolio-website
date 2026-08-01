@@ -6,7 +6,7 @@ import ParticleField from './ParticleField'
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-[240px] relative flex flex-col items-center justify-center p-[30px] rounded-[12px] mb-[40px] overflow-hidden text-center border border-white/5 shadow-2xl">
+    <section id="home" className="min-h-[240px] relative flex flex-col items-center justify-center p-5 md:p-[30px] rounded-[12px] mb-[40px] overflow-hidden text-center border border-white/5 shadow-2xl">
       <div className="absolute inset-0 z-0 bg-darker-bg"></div>
       <ParticleField />
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-darker-bg/60 via-transparent to-darker-bg/80"></div>

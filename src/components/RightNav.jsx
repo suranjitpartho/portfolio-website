@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Home, Layers, Briefcase, Cpu, FileText, Mail } from 'lucide-react'
+import { useScrollSpy } from '../hooks/useScrollSpy'
 
 const navItems = [
   { id: 'home', icon: <Home size={18} />, label: 'Home' },
@@ -10,66 +11,18 @@ const navItems = [
   { id: 'contact', icon: <Mail size={18} />, label: 'Contact' },
 ]
 
-const SECTION_IDS = ['home', 'projects', 'experience', 'tech', 'contact']
-
 const RightNav = () => {
-  const [activeItem, setActiveItem] = useState('home')
-
-  useEffect(() => {
-    const container = document.getElementById('main-scroll')
-    if (!container) return
-
-    let rafId = null
-
-    const updateActive = () => {
-      const containerTop = container.getBoundingClientRect().top
-      const band = container.clientHeight * 0.35
-      let current = SECTION_IDS[0]
-      for (const id of SECTION_IDS) {
-        const el = document.getElementById(id)
-        if (el && el.getBoundingClientRect().top - containerTop <= band) {
-          current = id
-        }
-      }
-      if (container.scrollTop + container.clientHeight >= container.scrollHeight - 4) {
-        current = SECTION_IDS[SECTION_IDS.length - 1]
-      }
-      setActiveItem(current)
-    }
-
-    const onScroll = () => {
-      if (rafId) return
-      rafId = requestAnimationFrame(() => {
-        rafId = null
-        updateActive()
-      })
-    }
-
-    updateActive()
-    container.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-
-    return () => {
-      if (rafId) cancelAnimationFrame(rafId)
-      container.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
-  const handleClick = (id) => {
-    setActiveItem(id)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const { activeItem, scrollTo } = useScrollSpy()
 
   return (
-    <div className="w-[80px] h-full bg-darker-bg flex flex-col items-center justify-center border-l border-white/5 relative z-20">
+    <div className="hidden lg:flex w-[80px] h-full bg-darker-bg flex-col items-center justify-center border-l border-white/5 relative z-20">
       
       {/* Navigation Stack */}
       <nav className="flex flex-col gap-8">
         {navItems.map((item) => (
           <button 
             key={item.id}
-            onClick={() => handleClick(item.id)}
+            onClick={() => scrollTo(item.id)}
             className="group relative flex items-center justify-center p-0 border-none bg-transparent"
           >
             {/* Command Label Tooltip */}

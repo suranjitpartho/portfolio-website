@@ -38,7 +38,7 @@ const Contact = () => {
 
       <div className="grid md:grid-cols-5 gap-[30px] items-stretch">
         {/* Availability - left, border-only card */}
-        <div className="md:col-span-2 flex flex-col border border-white/10 rounded-[12px] p-6">
+        <div className="md:col-span-2 flex flex-col border border-white/10 rounded-[12px] p-5 sm:p-6">
           <div className="flex items-center gap-2.5 mb-5">
             <CalendarClock size={18} className="text-text-secondary" />
             <h3 className="text-[0.95rem] font-header font-semibold tracking-wide text-text-primary">
@@ -63,7 +63,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="md:col-span-3 bg-surface/60 backdrop-blur-md rounded-[12px] border border-white/10 p-6"
+          className="md:col-span-3 bg-surface/60 backdrop-blur-md rounded-[12px] border border-white/10 p-5 sm:p-6"
         >
           <div className="flex items-center gap-2.5 mb-5">
             <Briefcase size={18} className="text-text-secondary" />

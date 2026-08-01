@@ -9,7 +9,7 @@ import Contact from './Contact'
 const MainContent = () => {
   return (
     <div className="flex-1 h-full overflow-hidden relative">
-      <div id="main-scroll" className="h-full overflow-y-auto p-[30px] no-scrollbar">
+      <div id="main-scroll" className="h-full overflow-y-auto px-4 sm:px-[30px] pt-20 lg:pt-[30px] pb-24 lg:pb-[30px] no-scrollbar">
 
         <Hero />
 
